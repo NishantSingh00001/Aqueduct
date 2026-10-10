@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="7" fill="#0A0F12"/>
+  <!-- aqueduct arches -->
+  <path d="M4 22a4 4 0 0 1 8 0M12 22a4 4 0 0 1 8 0M20 22a4 4 0 0 1 8 0"
+        fill="none" stroke="#E0A868" stroke-width="1.6"/>
+  <path d="M3 22h26" stroke="#E0A868" stroke-width="1.6" stroke-linecap="round"/>
+  <!-- water channel on top with flow -->
+  <path d="M3 9h26" stroke="#35E0C4" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="10" cy="9" r="1.5" fill="#5BF0D8"/>
+  <circle cx="20" cy="9" r="1.5" fill="#5BF0D8"/>
+</svg>

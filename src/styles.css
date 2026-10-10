@@ -1,0 +1,235 @@
+/* Aqueduct — "engineered infrastructure carrying flow."
+   Classical (Roman aqueduct) meets modern distributed systems.
+   Fraunces (display serif, characterful), Hanken Grotesk (body),
+   JetBrains Mono (telemetry). Graphite base, luminous aqua "water",
+   warm sandstone "stone". Distinct from Tideline and Tessera. */
+
+:root {
+  --bg: #0a0f12;
+  --bg-2: #0e1418;
+  --surface: #141b20;
+  --surface-2: #1b242b;
+  --surface-3: #232f37;
+  --line: #243139;
+  --line-strong: #35454f;
+  --text: #e9eef0;
+  --muted: #8a9aa2;
+  --faint: #5f6f77;
+
+  --water: #35e0c4;
+  --water-bright: #6af2db;
+  --water-deep: #2f8fe0;
+  --stone: #e0a868;
+  --stone-bright: #f0c088;
+
+  --ok: #35e0c4;
+  --warn: #e0a868;
+  --err: #f2616b;
+
+  --r-sm: 8px;
+  --r: 13px;
+  --r-lg: 20px;
+  --maxw: 1200px;
+  --display: "Fraunces", Georgia, serif;
+  --sans: "Hanken Grotesk", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  margin: 0;
+  font-optical-sizing: auto;
+}
+
+a {
+  color: var(--water-bright);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+code,
+.mono {
+  font-family: var(--mono);
+}
+button {
+  font-family: inherit;
+}
+:focus-visible {
+  outline: 2px solid var(--water);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---- buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface-2);
+  color: var(--text);
+  padding: 11px 20px;
+  border-radius: var(--r-sm);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.18s,
+    border-color 0.18s,
+    transform 0.06s,
+    box-shadow 0.18s;
+}
+.btn:hover {
+  border-color: var(--water);
+  background: var(--surface-3);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn.primary {
+  background: var(--water);
+  border: 1px solid transparent;
+  color: #04231f;
+  font-weight: 700;
+  box-shadow: 0 6px 22px -12px rgba(53, 224, 196, 0.6);
+}
+.btn.primary:hover {
+  background: var(--water-bright);
+  border-color: transparent;
+}
+.btn.ghost {
+  background: transparent;
+}
+
+/* Buttons that sit over the fluid hero read as glass, not hard boxes. */
+.hero .cta .btn {
+  padding: 13px 24px;
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+}
+.hero .cta .btn.primary {
+  background: rgba(130, 245, 225, 0.92);
+  color: #042a25;
+}
+.hero .cta .btn.primary:hover {
+  background: #fff;
+}
+.hero .cta .btn.ghost {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+.hero .cta .btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.nav .launch {
+  padding: 9px 20px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  font-size: 14px;
+}
+.nav .launch:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* ---- primitives: badges, cards ---- */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--water);
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 22px;
+}
+.muted {
+  color: var(--muted);
+}
+.faint {
+  color: var(--faint);
+}
+.tiny {
+  font-size: 13px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 4px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--muted);
+}
+
+.content {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+.section {
+  padding: 96px 0;
+  position: relative;
+}
+.section-head {
+  max-width: 640px;
+  margin-bottom: 44px;
+}
+.section-head h2 {
+  font-size: clamp(30px, 4vw, 46px);
+  margin: 12px 0;
+}
+.grid {
+  display: grid;
+  gap: 18px;
+}
+.row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.wrap {
+  flex-wrap: wrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  html {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
